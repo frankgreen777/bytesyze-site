@@ -163,4 +163,3 @@ export default function HomePage() {
     </main>
   );
 }
-export default HomePage;
