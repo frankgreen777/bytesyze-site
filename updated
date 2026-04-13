@@ -1,0 +1,144 @@
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  ShieldCheck,
+  Recycle,
+  HardDrive,
+  Truck,
+  BarChart3,
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function HomePage() {
+  const services = [
+    {
+      icon: <HardDrive className="h-8 w-8" />,
+      title: "Secure IT Asset Disposition",
+      desc:
+        "Certified data destruction and compliant end‑of‑life IT asset processing.",
+    },
+    {
+      icon: <ShieldCheck className="h-8 w-8" />,
+      title: "Data Security & Compliance",
+      desc:
+        "NIST‑aligned processes with full chain‑of‑custody and audit documentation.",
+    },
+    {
+      icon: <Recycle className="h-8 w-8" />,
+      title: "Responsible Recycling",
+      desc:
+        "Zero‑landfill recycling and ESG‑aligned asset recovery programs.",
+    },
+    {
+      icon: <Truck className="h-8 w-8" />,
+      title: "Nationwide Logistics",
+      desc:
+        "Secure pickup, serialized tracking, and controlled downstream vendors.",
+    },
+    {
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "Reporting & Value Recovery",
+      desc:
+        "Detailed asset reports, resale insights, and compliance certificates.",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+
+      {/* HEADER / BRAND BAR */}
+      <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/bytesyze-logo.svg"
+            alt="ByteSyze IT Solutions"
+            width={44}
+            height={44}
+            priority
+          />
+          <span className="text-lg font-semibold tracking-tight">
+            ByteSyze IT Solutions
+          </span>
+        </div>
+
+        <Button
+          variant="outline"
+          className="border-zinc-700 text-white hover:border-green-500 hover:text-green-400"
+        >
+          Request ITAD Quote
+        </Button>
+      </header>
+
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            Enterprise IT Asset Disposition
+            <span className="block text-green-400 mt-2">
+              Secure. Compliant. Sustainable.
+            </span>
+          </h1>
+
+          <p className="mt-6 text-gray-300 text-lg">
+            ByteSyze IT Solutions delivers compliance‑first IT Asset Disposition
+            services built for regulated enterprises where data risk and audit
+            exposure cannot be ignored.
+          </p>
+
+          <div className="mt-8 flex gap-4">
+            <Button className="bg-green-500 hover:bg-green-600 text-black">
+              Schedule an ITAD Consultation
+            </Button>
+            <Button variant="outline" className="border-gray-600 text-white">
+              Talk to an Expert
+            </Button>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="bg-gradient-to-br from-green-500/20 to-transparent rounded-2xl p-10"
+        >
+          <p className="text-xl font-semibold">Compliance‑First by Design</p>
+          <p className="mt-4 text-gray-300">
+            Built for healthcare, education, government, and enterprise
+            organizations nationwide.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* SERVICES (UNCHANGED) */}
+      <section className="bg-zinc-900 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Our ITAD Services
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((s, i) => (
+              <Card
+                key={i}
+                className="bg-black border border-zinc-800 rounded-2xl"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4 text-green-400">{s.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
+                  <p className="text-gray-400 text-sm">{s.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}
+``
